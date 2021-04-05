@@ -31,7 +31,7 @@ def test_utils_get_base_frame_type_pandas():
     assert issubclass(get_base_frame_type("Index", is_index_like, df.index), pd.Index)
 
 
-def test_utils_get_base_frame_type_cudf():
+def test_utils_get_base_frame_type_cudf():  # pragma: no cover
     cudf = pytest.importorskip("cudf")
 
     df = cudf.DataFrame({'x': np.arange(10, dtype=float), 'y': [1.0, 2.0] * 5})
@@ -62,7 +62,7 @@ def test_get_dataframe_package_pandas():
     assert pd == get_dataframe_package(df.index)
 
 
-def test_get_dataframe_package_cudf():
+def test_get_dataframe_package_cudf():  # pragma: no cover
     cudf = pytest.importorskip("cudf")
     df = cudf.DataFrame({'x': np.arange(10, dtype=float), 'y': [1.0, 2.0] * 5})
     assert cudf == get_dataframe_package(df)
